@@ -1,0 +1,5 @@
+ext.mCompileSdkVersion = 29
+ext.mBuildToolsVersion = "29.0.3"
+
+ext.mMinSdkVersion = 14
+ext.mTargetSdkVersion = 29
