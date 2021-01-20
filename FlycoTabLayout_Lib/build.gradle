@@ -8,7 +8,7 @@ def mGroup = "com.fmy.tablayout"       // Maven Group ID for the artifact，一�
 def mArtifactId = "tablayout2"       // Maven Group ID for the artifact，一般填你唯一的包名
 
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-def mVersion = "0.0.1"
+def mVersion = "1.0.0"
 android {
     compileSdkVersion mCompileSdkVersion
     buildToolsVersion mBuildToolsVersion
@@ -99,7 +99,7 @@ bintray {
 
         version {
             name = mVersion
-            desc = 'migrate androidX'
+            desc = '1.Migrate Android. 2.Support ViewPager2'
             released  = new Date()
             vcsTag = mVersion
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
