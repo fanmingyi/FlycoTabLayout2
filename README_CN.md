@@ -1,7 +1,9 @@
+> 由于作者长期不维护所以鄙人开了一个库方便更新
+
 # FlycoTabLayout
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FlycoTabLayout-green.svg?style=true)](https://android-arsenal.com/details/1/2756)
 
-一个Android TabLayout库,目前有3个TabLayout
+一个Android TabLayout库,目前有4个TabLayout
 
 * SlidingTabLayout:参照[PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip)进行大量修改.
     * 新增部分属性
@@ -16,6 +18,17 @@
         /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
         public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
     ```
+       
+* SlidingTabLayout2: support ViewPager2.
+      
+   
+    ```java
+        /** no need to set titles in adapter */
+        public void setViewPager(ViewPager2 vp, String[] titles)
+        
+        /** no need to initialize even adapter */
+        public void setViewPager(ViewPager2 vp, String[] titles, FragmentActivity fa, List<Fragment> fragments) 
+    ```    
 
 * CommonTabLayout:不同于SlidingTabLayout对ViewPager依赖,它是一个不依赖ViewPager可以与其他控件自由搭配使用的TabLayout.
     * 支持多种Indicator显示器,以及Indicator动画
@@ -40,35 +53,20 @@
 
 >## Change Log
 
- > v2.0.0(2016-03-01)
-   - 删除了对FlycoRoundView库的依赖
-   - 新增方法getIconView和getTitleView(为了某些情况需要动态更新icon之类的)
+ > v1.0.0
+   - 迁移 AndroidX
+   - 支持 ViewPager2
+  
 
- > v2.0.2(2016-04-23)
-   - 删除了对NineOldAnimation库依赖(仅支持3.0+)
 
 ## Gradle
 
 ```groovy
 dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.2@aar'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:1.5.0@aar'
+  implementation 'com.fmy.tablayout:tablayout2:1.0.0'
 }
 
-After v2.0.0(support 2.2+)
-dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
-}
 
-After v2.0.2(support 3.0+)
-dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-}
 ```
 
 ## Attributes
