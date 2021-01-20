@@ -34,14 +34,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /** 滑动TabLayout,对于ViewPager的依赖性强 */
+
+/**
+ * 请使用viewPager2
+ */
+@Deprecated()
 public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.OnPageChangeListener {
     private Context mContext;
     private ViewPager mViewPager;
-    private ArrayList<String> mTitles;
+    protected ArrayList<String> mTitles;
     private LinearLayout mTabsContainer;
-    private int mCurrentTab;
-    private float mCurrentPositionOffset;
-    private int mTabCount;
+    protected int mCurrentTab;
+    protected float mCurrentPositionOffset;
+    protected int mTabCount;
     /** 用于绘制显示器 */
     private Rect mIndicatorRect = new Rect();
     /** 用于实现滚动居中 */
@@ -335,7 +340,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     }
 
     /** HorizontalScrollView滚到当前tab,并且居中显示 */
-    private void scrollToCurrentTab() {
+    protected void scrollToCurrentTab() {
         if (mTabCount <= 0) {
             return;
         }
@@ -361,7 +366,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         }
     }
 
-    private void updateTabSelection(int position) {
+    protected void updateTabSelection(int position) {
         for (int i = 0; i < mTabCount; ++i) {
             View tabView = mTabsContainer.getChildAt(i);
             final boolean isSelect = i == position;
@@ -853,6 +858,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
         public InnerPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments, String[] titles) {
             super(fm);
+
             this.fragments = fragments;
             this.titles = titles;
         }
