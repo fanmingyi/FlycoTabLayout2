@@ -5,7 +5,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FlycoTabLayout-green.svg?style=true)](https://android-arsenal.com/details/1/2756)
 #### [中文版](https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md)
 
-An Android TabLayout Lib has 3 kinds of TabLayout at present.
+An Android TabLayout Lib has 4 kinds of TabLayout at present.
 
 * SlidingTabLayout: deeply modified from [PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip).
     * new added attribute
@@ -19,6 +19,22 @@ An Android TabLayout Lib has 3 kinds of TabLayout at present.
         
         /** no need to initialize even adapter */
         public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
+    ```
+    Instead of maintaining a SlidingTableOut, use SlidingTableOut2(only ViewPager2).
+    
+    
+* SlidingTabLayout2: support ViewPager2.
+    * new added attribute
+    * new added kinds of indicators
+    * new added unread msg tip
+    * new added method for convenience
+    
+    ```java
+        /** no need to set titles in adapter */
+        public void setViewPager(ViewPager2 vp, String[] titles)
+        
+        /** no need to initialize even adapter */
+        public void setViewPager(ViewPager2 vp, String[] titles, FragmentActivity fa, List<Fragment> fragments) 
     ```
 
 * CommonTabLayout:unlike SlidingTabLayout's dependence on ViewPager,it is a tabLayout without dependence on ViewPager and 
@@ -45,12 +61,10 @@ can be used freely with other widgets together.
 
 >## Change Log
 
- > v2.0.0(2016-03-01)
-   - remove the dependence of FlycoRoundView
-   - new added method getIconView and getTitleView
-
- > v2.0.2(2016-04-23)
-   - remove the dependence of NineOldAnimation(only support 3.0+)
+ > v1.0.0
+   - Support AndroidX
+   - Support ViewPager2
+  
 
 
 ## Gradle
