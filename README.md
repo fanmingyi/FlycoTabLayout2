@@ -69,6 +69,19 @@ can be used freely with other widgets together.
 
 ## Gradle
 
+
+Add `jcenter()` to your root `build.gradle`
+```groovy
+allprojects {
+    repositories {
+        jcenter()
+     }
+}
+```
+
+
+Add a declare to module `build.gradle`
+
 ```groovy
 dependencies{
   implementation 'com.fmy.tablayout:tablayout2:1.0.0'
