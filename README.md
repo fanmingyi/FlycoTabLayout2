@@ -20,7 +20,7 @@ An Android TabLayout Lib has 4 kinds of TabLayout at present.
         /** no need to initialize even adapter */
         public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
     ```
-    Instead of maintaining a SlidingTableOut, use SlidingTableOut2(only ViewPager2).
+    Instead of maintaining a SlidingTabLayout, use SlidingTabLayout2(only ViewPager2).
     
     
 * SlidingTabLayout2: support ViewPager2.
