@@ -53,7 +53,7 @@ can be used freely with other widgets together.
 
 ## Demo
 
-<img style="width:50px;height:50px" src="https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif"  alt="真棒" align=center />
+<img style="width:150px;height:150px" src="https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif"  alt="真棒" align=center />
 
 
 
