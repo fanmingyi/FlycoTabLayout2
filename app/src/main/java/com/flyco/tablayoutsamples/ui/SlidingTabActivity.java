@@ -63,18 +63,21 @@ public class SlidingTabActivity extends AppCompatActivity implements OnTabSelect
         SlidingTabLayout tabLayout_9 = ViewFindUtils.find(decorView, R.id.tl_9);
         /** indicator圆角色块 */
         SlidingTabLayout tabLayout_10 = ViewFindUtils.find(decorView, R.id.tl_10);
+        /*支持缩放效果*/
+        SlidingTabLayout tabLayout_11 = ViewFindUtils.find(decorView, R.id.tl_11);
 
-        tabLayout_1.setViewPager(vp);
-        tabLayout_2.setViewPager(vp);
+        tabLayout_1.setViewPager(vp,mTitles);
+        tabLayout_2.setViewPager(vp,mTitles);
         tabLayout_2.setOnTabSelectListener(this);
-        tabLayout_3.setViewPager(vp);
-        tabLayout_4.setViewPager(vp);
-        tabLayout_5.setViewPager(vp);
-        tabLayout_6.setViewPager(vp);
+        tabLayout_3.setViewPager(vp,mTitles);
+        tabLayout_4.setViewPager(vp,mTitles);
+        tabLayout_5.setViewPager(vp,mTitles);
+        tabLayout_6.setViewPager(vp,mTitles);
         tabLayout_7.setViewPager(vp, mTitles);
         tabLayout_8.setViewPager(vp, mTitles, this, mFragments);
-        tabLayout_9.setViewPager(vp);
-        tabLayout_10.setViewPager(vp);
+        tabLayout_9.setViewPager(vp,mTitles);
+        tabLayout_10.setViewPager(vp,mTitles);
+        tabLayout_11.setViewPager(vp,mTitles);
 
         vp.setCurrentItem(4);
 
