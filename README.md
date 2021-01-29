@@ -55,6 +55,7 @@ can be used freely with other widgets together.
 
 <img style="width:150px;height:150px" src="https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif"  alt="真棒" align=center />
 
+<img src="https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif"  style="zoom: 33%;" />
 
 
 ![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif)
