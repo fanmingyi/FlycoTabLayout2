@@ -52,7 +52,8 @@
 
 
 >## Change Log
-
+> v1.1.0
+   - 选中字体缩放
  > v1.0.0
    - 迁移 AndroidX
    - 支持 ViewPager2
@@ -93,6 +94,7 @@ dependencies{
 | tl_tab_space_equal |boolean| 设置tab大小等分
 | tl_tab_width |dimension| 设置tab固定大小
 | tl_textsize |dimension| 设置字体大小
+| tl_selectTextSize |dimension| 选中时字体大小
 | tl_textSelectColor |color| 设置字体选中颜色
 | tl_textUnselectColor |color| 设置字体未选中颜色
 | tl_textBold |boolean| 设置字体加粗

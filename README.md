@@ -60,6 +60,8 @@ can be used freely with other widgets together.
 
 
 >## Change Log
+> v1.1.0
+   - Support scale font size when selection
 
  > v1.0.0
    - Support AndroidX
