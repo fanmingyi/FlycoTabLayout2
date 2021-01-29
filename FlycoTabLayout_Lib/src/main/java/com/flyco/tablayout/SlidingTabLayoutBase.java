@@ -232,10 +232,16 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
   /** 创建并添加tab */
   private void addTab(final int position, String title, View tabView) {
     TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
+    TextView tv_placehold_scale = (TextView) tabView.findViewById(R.id.tv_placehold_scale);
+
     if (tv_tab_title != null) {
       if (title != null) tv_tab_title.setText(title);
     }
 
+    if (tv_placehold_scale != null) {
+      tv_placehold_scale.setTextSize(TypedValue.COMPLEX_UNIT_PX, mSelectTextSize);
+    }
+    tabView.requestLayout();
     tabView.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -276,7 +282,14 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
       View v = mTabsContainer.getChildAt(i);
       //            v.setPadding((int) mTabPadding, v.getPaddingTop(), (int) mTabPadding, v.getPaddingBottom());
       TextView tv_tab_title = (TextView) v.findViewById(R.id.tv_tab_title);
+      TextView tv_placehold_scale = (TextView) v.findViewById(R.id.tv_placehold_scale);
+      if (tv_placehold_scale != null) {
+        tv_placehold_scale.setTextSize(TypedValue.COMPLEX_UNIT_PX, mSelectTextSize);
+        tv_placehold_scale.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
+
+      }
       if (tv_tab_title != null) {
+
         tv_tab_title.setTextColor(i == mCurrentTab ? mTextSelectColor : mTextUnselectColor);
         tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextsize);
         tv_tab_title.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
@@ -292,18 +305,19 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
       }
     }
   }
+
   @CallSuper
-   public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels){
-     /**
-      * position:当前View的位置
-      * mCurrentPositionOffset:当前View的偏移量比例.[0,1)
-      */
-     mCurrentTab = position;
-     mCurrentPositionOffset = positionOffset;
-     tabScaleTransformer.onPageScrolled(position, positionOffset, positionOffsetPixels);
-     scrollToCurrentTab();
-     invalidate();
-   }
+  public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    /**
+     * position:当前View的位置
+     * mCurrentPositionOffset:当前View的偏移量比例.[0,1)
+     */
+    mCurrentTab = position;
+    mCurrentPositionOffset = positionOffset;
+    tabScaleTransformer.onPageScrolled(position, positionOffset, positionOffsetPixels);
+    scrollToCurrentTab();
+    invalidate();
+  }
 
   /** HorizontalScrollView滚到当前tab,并且居中显示 */
   protected void scrollToCurrentTab() {
