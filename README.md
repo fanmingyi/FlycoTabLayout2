@@ -53,7 +53,7 @@ can be used freely with other widgets together.
 
 ## Demo
 
-![](https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif ){:height="100" width="100"}
+![](https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif ){:height="50" width="50"}
 
 ![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif)
 
