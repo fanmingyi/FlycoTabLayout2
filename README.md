@@ -3,7 +3,7 @@
 
 # FlycoTabLayout
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FlycoTabLayout-green.svg?style=true)](https://android-arsenal.com/details/1/2756)
-#### [中文版](https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md)
+#### [中文版](https://github.com/fanmingyi/FlycoTabLayout2/blob/main/README_CN.md)
 
 An Android TabLayout Lib has 4 kinds of TabLayout at present.
 
@@ -20,7 +20,7 @@ An Android TabLayout Lib has 4 kinds of TabLayout at present.
         /** no need to initialize even adapter */
         public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa, ArrayList<Fragment> fragments) 
     ```
-    Instead of maintaining a SlidingTableOut, use SlidingTableOut2(only ViewPager2).
+    Instead of maintaining a SlidingTabLayout, use SlidingTabLayout2(only ViewPager2).
     
     
 * SlidingTabLayout2: support ViewPager2.
@@ -69,26 +69,25 @@ can be used freely with other widgets together.
 
 ## Gradle
 
+
+Add `jcenter()` to your root `build.gradle`
+```groovy
+allprojects {
+    repositories {
+        jcenter()
+     }
+}
+```
+
+
+Add a declare to module `build.gradle`
+
 ```groovy
 dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.2@aar'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:1.5.0@aar'
+  implementation 'com.fmy.tablayout:tablayout2:1.0.0'
 }
 
-After v2.0.0
-dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
-}
 
-After v2.0.2(support 3.0+)
-dependencies{
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
-}
 ```
 
 ## Attributes
@@ -115,6 +114,7 @@ dependencies{
 | tl_tab_space_equal |boolean| set tab space equal
 | tl_tab_width |dimension| set tab width
 | tl_textsize |dimension| set text size
+| tl_selectTextSize |dimension| set text select size
 | tl_textSelectColor |color| set text select color
 | tl_textUnselectColor |color|  set text unselect color
 | tl_textBold |boolean| set text is bold 
