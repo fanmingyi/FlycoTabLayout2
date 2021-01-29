@@ -52,7 +52,10 @@ can be used freely with other widgets together.
 * SegmentTabLayout
 
 ## Demo
-![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif)
+
+
+
+<img src="https://github.com/fanmingyi/FlycoTabLayout2/blob/main/preview_1.gif" width = "400" height = "600" alt="" align=center />
 
 ![](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif)
 
@@ -86,7 +89,7 @@ Add a declare to module `build.gradle`
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.0.0'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.0'
 }
 
 
