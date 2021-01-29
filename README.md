@@ -114,6 +114,7 @@ dependencies{
 | tl_tab_space_equal |boolean| set tab space equal
 | tl_tab_width |dimension| set tab width
 | tl_textsize |dimension| set text size
+| tl_selectTextSize |dimension| set text select size
 | tl_textSelectColor |color| set text select color
 | tl_textUnselectColor |color|  set text unselect color
 | tl_textBold |boolean| set text is bold 
