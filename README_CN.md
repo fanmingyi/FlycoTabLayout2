@@ -53,11 +53,15 @@
 
 
 >## Change Log
-> v1.1.0
+> v1.1.2
+  - 修复缩放错误.
+
+> v1.1.1
   - 修复pom错误
+
 > v1.1.0
    - 选中字体缩放
- > v1.0.0
+> v1.0.0
    - 迁移 AndroidX
    - 支持 ViewPager2
   
@@ -67,7 +71,7 @@
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.1.1'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.2'
 }
 
 

@@ -63,16 +63,19 @@ can be used freely with other widgets together.
 
 
 >## Change Log
-> v1.1.1
-- Repair artifact's pom file
 
+  > v1.1.2
+    - Fix scale font
 
-> v1.1.0
-   - Support scale font size when selection
+  > v1.1.1
+    - Repair artifact's pom file
 
- > v1.0.0
-   - Support AndroidX
-   - Support ViewPager2
+  > v1.1.0
+    - Support scale font size when selection
+
+  > v1.0.0
+    - Support AndroidX
+    - Support ViewPager2
   
 
 
@@ -93,7 +96,7 @@ Add a declare to module `build.gradle`
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.1.1'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.2'
 }
 
 

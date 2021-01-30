@@ -129,8 +129,8 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         tl:tl_indicator_color="#393E46"
-        tl:tl_textsize="25dp"
-        tl:tl_selectTextSize="30dp"
+        tl:tl_textsize="16dp"
+        tl:tl_selectTextSize="24dp"
         tl:tl_textSelectColor="#f00"
         tl:tl_textUnselectColor="@android:color/darker_gray"
         tl:tl_indicator_corner_radius="5dp"
@@ -139,6 +139,7 @@
         />
 
     </LinearLayout>
+
 
     <androidx.viewpager.widget.ViewPager
       android:id="@+id/vp"

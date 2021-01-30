@@ -123,7 +123,7 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
 
     obtainAttributes(context, attrs);
 
-    tabScaleTransformer = new TabScaleTransformer(this, mTextsize, mSelectTextSize);
+    tabScaleTransformer = new TabScaleTransformer(this, mSelectTextSize, mTextsize);
 
     //get layout_height
     String height =
@@ -286,7 +286,6 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
       if (tv_placehold_scale != null) {
         tv_placehold_scale.setTextSize(TypedValue.COMPLEX_UNIT_PX, mSelectTextSize);
         tv_placehold_scale.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
-
       }
       if (tv_tab_title != null) {
 
@@ -314,7 +313,12 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
      */
     mCurrentTab = position;
     mCurrentPositionOffset = positionOffset;
-    tabScaleTransformer.onPageScrolled(position, positionOffset, positionOffsetPixels);
+
+    //缩放大小不一致那么执行动画
+    if (mSelectTextSize != mTextsize) {
+      tabScaleTransformer.onPageScrolled(position, positionOffset, positionOffsetPixels);
+    }
+
     scrollToCurrentTab();
     invalidate();
   }
@@ -869,44 +873,6 @@ public abstract class SlidingTabLayoutBase extends HorizontalScrollView {
    */
   abstract void setCurrentItem(int position, boolean smooth);
 
-  class InnerPagerAdapter extends FragmentPagerAdapter {
-    private ArrayList<Fragment> fragments = new ArrayList<>();
-    private List<String> titles;
-
-    public InnerPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments,
-        List<String> titles) {
-      super(fm);
-
-      this.fragments = fragments;
-      this.titles = titles;
-    }
-
-    @Override
-    public int getCount() {
-      return fragments.size();
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-      return titles.get(position);
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-      return fragments.get(position);
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-      // 覆写destroyItem并且空实现,这样每个Fragment中的视图就不会被销毁
-      // super.destroyItem(container, position, object);
-    }
-
-    @Override
-    public int getItemPosition(Object object) {
-      return PagerAdapter.POSITION_NONE;
-    }
-  }
 
   @Override
   protected Parcelable onSaveInstanceState() {

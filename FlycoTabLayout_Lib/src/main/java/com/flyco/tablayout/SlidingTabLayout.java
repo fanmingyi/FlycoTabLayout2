@@ -2,8 +2,11 @@ package com.flyco.tablayout;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import java.util.ArrayList;
@@ -60,10 +63,9 @@ public class SlidingTabLayout extends SlidingTabLayoutBase
     Collections.addAll(titleList, titles);
     setViewPager(vp, titleList);
   }
-
   /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
-  public void setViewPager(ViewPager vp, List<String> titles, FragmentActivity fa,
-      ArrayList<Fragment> fragments) {
+  public void setViewPager(ViewPager vp, List<String> titles, FragmentManager fragmentManager,
+      List<Fragment> fragments) {
     mTitles = new ArrayList<>();
     mTitles.addAll(titles);
     if (vp == null) {
@@ -76,16 +78,21 @@ public class SlidingTabLayout extends SlidingTabLayoutBase
 
     this.mViewPager = vp;
     this.mViewPager.setAdapter(
-        new InnerPagerAdapter(fa.getSupportFragmentManager(), fragments, titles));
+        new InnerPagerAdapter(fragmentManager, fragments, titles));
 
     this.mViewPager.removeOnPageChangeListener(this);
     this.mViewPager.addOnPageChangeListener(this);
     notifyDataSetChanged();
   }
+  /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
+  public void setViewPager(ViewPager vp, List<String> titles, FragmentActivity fa,
+      List<Fragment> fragments) {
+    setViewPager(vp, titles, fa.getSupportFragmentManager(), fragments);
+  }
 
   /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
   public void setViewPager(ViewPager vp, String[] titles, FragmentActivity fa,
-      ArrayList<Fragment> fragments) {
+      List<Fragment> fragments) {
 
     ArrayList<String> stringList = new ArrayList<>();
     Collections.addAll(stringList, titles);
@@ -139,4 +146,43 @@ public class SlidingTabLayout extends SlidingTabLayoutBase
     this.mCurrentTab = position;
     mViewPager.setCurrentItem(position, smooth);
   }
+  class InnerPagerAdapter extends FragmentPagerAdapter {
+    private List<Fragment> fragments = new ArrayList<>();
+    private List<String> titles;
+
+    public InnerPagerAdapter(FragmentManager fm, List<Fragment> fragments,
+        List<String> titles) {
+      super(fm);
+
+      this.fragments = fragments;
+      this.titles = titles;
+    }
+
+    @Override
+    public int getCount() {
+      return fragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+      return titles.get(position);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+      return fragments.get(position);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+      // 覆写destroyItem并且空实现,这样每个Fragment中的视图就不会被销毁
+      // super.destroyItem(container, position, object);
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+      return PagerAdapter.POSITION_NONE;
+    }
+  }
+
 }

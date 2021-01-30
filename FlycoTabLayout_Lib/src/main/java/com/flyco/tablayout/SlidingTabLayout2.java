@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -90,7 +91,24 @@ public class SlidingTabLayout2 extends SlidingTabLayoutBase {
     Collections.addAll(titleList, titles);
     setViewPager(vp, titleList);
   }
+  /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
+  public void setViewPager(ViewPager2 vp, List<String> titles, FragmentManager fragmentManager,FragmentActivity fa,
+      List<Fragment> fragments) {
 
+    if (vp == null) {
+      throw new IllegalStateException("ViewPager can not be NULL !");
+    }
+
+    if (titles == null || titles.size() == 0) {
+      throw new IllegalStateException("Titles can not be EMPTY !");
+    }
+
+    registerVpListener(vp);
+    this.mViewPager.setAdapter(new InnerPagerAdapter(fa, fragmentManager, fa.getLifecycle()));
+    mTitles = new ArrayList<>();
+    mTitles.addAll(titles);
+    notifyDataSetChanged();
+  }
   /** 关联ViewPager,用于连适配器都不想自己实例化的情况 */
   public void setViewPager(ViewPager2 vp, List<String> titles, FragmentActivity fa,
       List<Fragment> fragments) {
@@ -196,6 +214,12 @@ public class SlidingTabLayout2 extends SlidingTabLayoutBase {
       super(fragmentManager.getSupportFragmentManager(), lifecycle);
 
       this.fragmentArrayList = fragmentArrayList;
+    }
+
+    public InnerPagerAdapter(FragmentActivity fa, FragmentManager fragmentManager, Lifecycle lifecycle) {
+      super(fragmentManager,lifecycle);
+      this.fragmentArrayList = fragmentArrayList;
+
     }
 
     public Fragment createFragment(int position) {

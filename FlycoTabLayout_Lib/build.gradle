@@ -13,7 +13,7 @@ def mArtifactId = "tablayout2"
 // Maven Group ID for the artifact，一般填你唯一的包名
 
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-def mVersion = "1.1.1"
+def mVersion = "1.1.2"
 android {
   compileSdkVersion mCompileSdkVersion
   buildToolsVersion mBuildToolsVersion
@@ -102,7 +102,7 @@ bintray {
 
     version {
       name = mVersion
-      desc = '1. The POM file for the repair artifact .'
+      desc = '1.Fix scale font .'
       released = new Date()
       vcsTag = mVersion
       attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
