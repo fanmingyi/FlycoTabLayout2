@@ -63,6 +63,10 @@ can be used freely with other widgets together.
 
 
 >## Change Log
+> v1.1.1
+- Repair artifact's pom file
+
+
 > v1.1.0
    - Support scale font size when selection
 
@@ -89,7 +93,7 @@ Add a declare to module `build.gradle`
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.1.0'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.1'
 }
 
 

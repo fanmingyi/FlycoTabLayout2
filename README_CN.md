@@ -54,6 +54,8 @@
 
 >## Change Log
 > v1.1.0
+  - 修复pom错误
+> v1.1.0
    - 选中字体缩放
  > v1.0.0
    - 迁移 AndroidX
@@ -65,7 +67,7 @@
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.1.0'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.1'
 }
 
 
