@@ -98,7 +98,7 @@ Add a declare to module `build.gradle`
 
 ```groovy
 dependencies{
-  implementation 'com.fmy.tablayout:tablayout2:1.1.2'
+  implementation 'com.fmy.tablayout:tablayout2:1.1.3'
 }
 
 
