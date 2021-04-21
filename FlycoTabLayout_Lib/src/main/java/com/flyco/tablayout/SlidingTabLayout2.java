@@ -104,7 +104,8 @@ public class SlidingTabLayout2 extends SlidingTabLayoutBase {
     }
 
     registerVpListener(vp);
-    this.mViewPager.setAdapter(new InnerPagerAdapter(fa, fragmentManager, fa.getLifecycle()));
+
+    this.mViewPager.setAdapter(new InnerPagerAdapter(fragments, fragmentManager, fa.getLifecycle()));
     mTitles = new ArrayList<>();
     mTitles.addAll(titles);
     notifyDataSetChanged();
@@ -216,7 +217,7 @@ public class SlidingTabLayout2 extends SlidingTabLayoutBase {
       this.fragmentArrayList = fragmentArrayList;
     }
 
-    public InnerPagerAdapter(FragmentActivity fa, FragmentManager fragmentManager, Lifecycle lifecycle) {
+    public InnerPagerAdapter( List<Fragment> fragmentArrayList,FragmentManager fragmentManager, Lifecycle lifecycle) {
       super(fragmentManager,lifecycle);
       this.fragmentArrayList = fragmentArrayList;
 

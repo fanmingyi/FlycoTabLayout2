@@ -64,6 +64,8 @@ can be used freely with other widgets together.
 
 >## Change Log
 
+  > v1.1.3
+    - Fix bug
   > v1.1.2
     - Fix scale font
 
