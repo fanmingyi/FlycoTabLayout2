@@ -38,6 +38,8 @@ import java.util.List;
 public class SlidingTabLayout2 extends SlidingTabLayoutBase {
 
   private ViewPager2 mViewPager;
+  private boolean mViewPageScrolling = false;
+  
   /**
    * 用于监听viewpager2变化然后做出改变
    */
@@ -190,11 +192,25 @@ public class SlidingTabLayout2 extends SlidingTabLayoutBase {
 
     @Override
     public void onPageSelected(int position) {
+        if (!mViewPageScrolling) {
+                if (position != mCurrentTab) {
+                    mCurrentTab = position;
+                    mCurrentPositionOffset = 0;
+                    tabScaleTransformer.onPageScrolled(position, 0, 0);
+                    scrollToCurrentTab();
+                    invalidate();
+                }
+        }
       updateTabSelection(position);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
+       if (state == 2) {
+                mViewPageScrolling = true;
+            } else {
+                mViewPageScrolling = false;
+            }
     }
   }
 
